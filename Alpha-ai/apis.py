@@ -21,7 +21,7 @@ def jokes(topic):
 	"X-RapidAPI-Key": "868380ffddmsh4880ca9d7d65994p1acc6fjsn1a25186c8770",
 	"X-RapidAPI-Host": "jokeapi-v2.p.rapidapi.com"
 }
- 
+
  response = requests.get(url, headers=headers, params=querystring).json()
  
  print(f"1. {response['setup']}")
