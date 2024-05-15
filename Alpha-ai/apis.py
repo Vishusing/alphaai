@@ -23,11 +23,14 @@ def jokes(topic):
 }
 
  response = requests.get(url, headers=headers, params=querystring).json()
- 
- print(f"1. {response['setup']}")
- speak(response['setup'])
- print(f"   {response['delivery']}")
- speak(response['delivery'])
+ if 'message' in response:
+   speak('No matching jokes found... Consider another topic...')
+ else:
+  print(f"1. {response['setup']}")
+  speak(response['setup'])
+  print(f"   {response['delivery']}")
+  speak(response['delivery'])
+jokes('ice')
 
 
 def news(topic):

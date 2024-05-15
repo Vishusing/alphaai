@@ -15,9 +15,9 @@ def wishme():
     if hour >= 0 and hour < 12:
         return("Good morning")
     elif hour >= 12 and hour < 16: 
-        return("afternoon")
+        return("Good Afternoon")
     else:
-        return("evening")
+        return("Good Evening")
 
 engine = p.init()
 rate = engine.getProperty('rate')
