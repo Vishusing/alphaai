@@ -3,7 +3,7 @@ import speech_recognition as sr
 import randfacts
 import datetime
 
-from selenium_web import open_wikipedia, open_youtube
+from selenium_web import *
 from apis import *
 
 def speak(text):
@@ -57,8 +57,8 @@ while True:
                 audio = r.listen(source)
                 topic = r.recognize_google(audio)
 
-                speak("Searching {} in wikipedia".format(topic))
-                print("Searching {} in wikipedia".format(topic))
+                speak(f"Searching {topic} in wikipedia")
+                print(f"Searching {topic} in wikipedia")
 
                 # Open Wikipedia and handle information retrieval
                 open_wikipedia(f"https://en.wikipedia.org/wiki/{topic}")
@@ -72,8 +72,10 @@ while True:
                 print("listening...")
                 audio = r.listen(source)
                 video = r.recognize_google(audio)
-                speak("Playing {} an youtube".format(video))
-                print("Playing {} an youtube" .format(video))
+
+                speak(f"Playing {video} an youtube")
+                print(f"Playing {video} an youtube")
+                
                 open_youtube(f"https://www.youtube.com/results?search_query={video.replace(' ', '+')}")
 
         # news Api function

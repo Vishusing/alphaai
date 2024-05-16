@@ -11,7 +11,6 @@ engine.setProperty('rate', 180)
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
-
 def jokes(topic):
  url = "https://jokeapi-v2.p.rapidapi.com/joke/Any"
 
@@ -43,7 +42,10 @@ def news(topic):
 }
 
  response = requests.get(url, headers=headers, params=querystring).json()
+ speak("How many headlines you want to hear??? Please enter it..")
+ x = int(input("How many headlines you want to hear??? Please enter it..\n"))
 
- for i in range(len(response['data'])):
-  print(f"{response['data'][i]['title']} \n")
-  speak(response['data'][i]['title'])
+ # Limit the number of headlines to the number user requested
+ for i in range(min(x, len(response['data']))):
+        print(f"{response['data'][i]['title']} \n")
+        speak(response['data'][i]['title'])
