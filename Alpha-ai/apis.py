@@ -30,7 +30,6 @@ def jokes(topic):
   speak(response['setup'])
   print(f"   {response['delivery']}")
   speak(response['delivery'])
-jokes('ice')
 
 
 def news(topic):
